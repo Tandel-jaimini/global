@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .calculator{
+    height: 408px;
+    width: 400px;
+    background-color:black;
+    color: white;
+    border: 3px solid white;
+    border-radius: 4px;
+    align-items: center;
+    flex: 10px;
+    margin-left: 400px;
+    margin-top: 100px;
+    /* display: flex; */
+    justify-content: space-evenly;
+         } </style>
+</head>
+<body style="font-family: Arial, Helvetica, sans-serif;background-color: gray;">
+    
+    <div class="calculator">
+        <h2 style="margin-left: 120px;">calculator </h2>
+        <input style="margin-left: 100px;" type= "number" id = "a" placeholder="enter first number"><br><br>
+        <input  style="margin-left: 100px;"  type= "number" id = "b" placeholder="enter second number">
+        <br>
+        <br>
+        <br>
+        <button style="margin-left: 70px;height: 100px;width: 100px;background-color: gray; border: 2px solid white;" onclick="calculator('+')">add</button>
+        <button style="margin-left: 70px;height: 100px;width: 100px;background-color: gray; border: 2px solid white;"onclick="calculator('-')">subtraction</button><br>
+        <button style="margin-left: 70px;height: 100px;width: 100px;background-color: gray;border: 2px solid white;" onclick="calculator('*')">multiply</button>
+        <button style="margin-left: 70px;height: 100px;width: 100px;background-color: gray;border: 2px solid white;" onclick="calculator('/')">divide</button>
+        <h3>Result : <span id ="result"></span></h3>
+    </div>
+    <script>
+        function calculator(operator) 
+        {
+            let a = parseFloat(document.getElementById('a').value);
+            let b = parseFloat(document.getElementById('b').value);
+            let result;
+
+            if(isNaN(a) || isNaN(b))
+            {
+                result = "plese enter valid numbers";
+                return;
+            }
+            else
+            {
+                switch (operator) 
+                {
+                    case '+':
+                        result = a+b;
+                        break;
+                    case '-':
+                        result = a-b;
+                        break;
+                    case '*':
+                        result = a*b;
+                        break;
+                    case '/':
+                        result !==0 ? result=a/b: result='cannot divide by zero';
+                        break;
+                    default:
+                        result = 'invalid opperation';
+                        break;
+                }
+            }
+            
+        document.getElementById('result').textContent = result;
+        }
+    </script>
+</body>
+</html>
+
